@@ -1,0 +1,1663 @@
+/* General Body and Root Styles */
+:root {
+  font-family: 'Inter', sans-serif; /* Using a more modern font */
+  line-height: 1.6;
+  font-weight: 400;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #e6faed; /* Lighter, subtle green background */
+  color: #34495e; /* Darker, professional text */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Link Styles */
+a {
+  font-weight: 500;
+  color: #2ecc71; /* A vibrant green for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #27ae60;
+  text-decoration: underline;
+}
+
+/* Main App Container */
+.App {
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  background-color: #e6faed; /* Consistent with body */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #34495e;
+}
+
+/* Header Styles */
+.App-header {
+  background-color: #286638; /* Darker green for header */
+  padding: 15px 40px;
+  color: white;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+  margin-bottom: 40px; /* Increased spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky; /* Sticky header */
+  top: 0;
+  z-index: 1000;
+}
+
+.App-header .logo-section h1 {
+  margin: 0;
+  font-size: 2em; /* Slightly larger title */
+  font-weight: 700;
+  color: white; /* White for logo text on dark green */
+  letter-spacing: 0.5px;
+}
+
+.App-header .main-nav {
+  display: flex;
+  gap: 30px; /* Increased gap */
+}
+
+.App-header .main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.05em;
+  padding: 5px 0;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.App-header .main-nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #2ecc71;
+  transition: width 0.3s ease;
+}
+
+.App-header .main-nav a:hover::after {
+  width: 100%;
+}
+
+.App-header .main-nav a:hover {
+  color: #2ecc71;
+}
+
+/* Button Styles */
+.wallet-section button,
+.milestone-card button,
+.input-group button {
+  background-color: #2ecc71; /* Consistent button green */
+  color: white;
+  padding: 12px 25px; /* More generous padding */
+  border: none;
+  border-radius: 6px; /* Slightly more rounded */
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-section button:hover,
+.milestone-card button:hover,
+.input-group button:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.wallet-section button:disabled,
+.milestone-card button:disabled,
+.input-group button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* Main Content Area */
+.App-main {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 35px; /* Increased gap between sections */
+  padding-bottom: 50px;
+}
+
+/* Card Section General Styles */
+.card-section {
+  background-color: white;
+  padding: 35px; /* Increased padding */
+  border-radius: 12px; /* More rounded corners */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08); /* Enhanced shadow */
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card-section:hover {
+  transform: translateY(-5px); /* Subtle lift on hover */
+}
+
+.card-section h2,
+.card-section h3 {
+  color: #286638; /* Consistent heading color */
+  margin-top: 0;
+  margin-bottom: 25px; /* Increased spacing */
+  border-bottom: 1px solid #d4edda; /* Lighter green border */
+  padding-bottom: 12px;
+  font-weight: 600;
+}
+
+.contract-info p strong {
+  color: #555;
+}
+
+.dapp-stats {
+  background-color: #f0fdf4; /* Very light green background */
+  border-left: 5px solid #2ecc71;
+  padding: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dapp-stats h4 {
+  color: #286638;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #c8e6c9;
+  padding-bottom: 8px;
+}
+
+.dapp-stats p {
+  margin: 5px 0;
+  color: #34495e;
+  font-size: 0.95em;
+}
+
+.user-role-tag {
+  display: inline-block;
+  padding: 5px 12px;
+  margin-left: 10px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.owner-tag {
+  background-color: #e74c3c; /* Red for owner */
+}
+
+.producer-tag {
+  background-color: #f39c12; /* Orange for producer */
+}
+
+.oracle-tag {
+  background-color: #9b59b6; /* Purple for oracle */
+}
+
+/* Hero Section Specific Styles */
+.hero-section {
+  background: linear-gradient(135deg, #2ecc71, #1e8449); /* Green gradient */
+  color: white;
+  text-align: center;
+  padding: 70px 40px;
+  border-radius: 12px;
+  margin-bottom: 40px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+.hero-section h2 {
+  color: white;
+  font-size: 3em;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.hero-section p {
+  font-size: 1.3em;
+  max-width: 900px;
+  margin: 0 auto 25px auto;
+  line-height: 1.5;
+}
+
+.hero-section .connect-wallet-message {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 18px 30px;
+  border-radius: 10px;
+  display: inline-block;
+  margin-top: 25px;
+  color: white;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* About Section Specific Styles */
+.about-section .about-content p {
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-size: 1.05em;
+  color: #555;
+}
+
+.about-section .image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin: 40px 0;
+}
+
+.about-section .image-gallery img {
+  max-width: 100%;
+  height: 200px; /* Consistent height */
+  width: 320px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-section .image-gallery img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* News, Impact, Stories, Research Section General Styles */
+.news-grid, .impact-grid, .stories-grid, .research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly wider min for items */
+  gap: 30px; /* Increased gap */
+  margin-top: 30px;
+}
+
+.news-item, .impact-item, .story-item, .research-item {
+  border: 1px solid #e0e0e0;
+  padding: 25px; /* Increased padding */
+  border-radius: 10px;
+  background-color: #fcfcfc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06); /* Refined shadow */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-item:hover, .impact-item:hover, .story-item:hover, .research-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.news-item h3, .impact-item h3, .story-item h3, .research-item h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.15em;
+}
+
+.news-item p, .impact-item p, .story-item p, .research-item p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.news-item a, .story-item a, .research-item a {
+  display: inline-block;
+  margin-top: auto;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.news-item a:hover, .story-item a:hover, .research-item a:hover {
+  color: #217dbb;
+  text-decoration: underline;
+}
+
+/* Form and Input Group Styles */
+.input-group {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.input-group input,
+.input-group select {
+  padding: 12px;
+  border: 1px solid #bdc3c7; /* Lighter border */
+  border-radius: 6px;
+  flex-grow: 1;
+  min-width: 200px;
+  font-size: 1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2); /* Focus ring */
+  outline: none;
+}
+
+/* Milestones Specific Styles */
+.milestones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.milestone-card {
+  border: 1px solid #e0e0e0;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #fcfcfc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.milestone-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.milestone-card h3 {
+  color: #3498db;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.15em;
+}
+
+.milestone-card p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.milestone-card button {
+  margin-top: 20px;
+  align-self: flex-start;
+}
+
+/* Event Log Styles */
+.event-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.event-item {
+  background-color: #d4edda; /* Lighter green background for events */
+  border: 1px solid #c8e6c9;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 0.95em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.event-item p {
+  margin: 3px 0;
+  word-break: break-all;
+  color: #555;
+}
+
+.event-item strong {
+  color: #34495e;
+}
+
+.wallet-section {
+  position: relative; /* For positioning the dropdown menu */
+}
+
+.disconnect-menu {
+  position: absolute;
+  top: 100%; /* Position below the button */
+  right: 0;
+  background-color: #286638; /* Darker green like the header */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  min-width: 180px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.disconnect-menu button {
+  background: none; /* Override button style */
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-align: left;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%; /* Make button fill the menu width */
+  border-radius: 0; /* Remove border-radius for menu items */
+  box-shadow: none; /* Remove shadow */
+  transform: translateY(0); /* Remove lift on hover */
+}
+
+.disconnect-menu button:hover {
+  background-color: #1e8449; /* Even darker green on hover */
+  transform: translateY(0); /* Ensure no lift on hover */
+  box-shadow: none; /* Ensure no shadow on hover */
+}
+
+/* The `.connect-wallet-message` is intentionally styled to look like a call-to-action button when the wallet is not connected. */
+.connect-wallet-message {
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 50px;
+  font-size: 1.3em;
+  color: #34495e;
+  font-weight: 600;
+}
+
+.connect-button-style {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.connect-button-style:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .App-header {
+    padding: 15px 25px;
+  }
+
+  .App-main {
+    width: 95%;
+  }
+
+  .App-header .main-nav {
+    gap: 20px;
+  }
+
+  .hero-section h2 {
+    font-size: 2.5em;
+  }
+
+  .hero-section p {
+    font-size: 1.1em;
+  }
+
+  .about-section .image-gallery img {
+    width: 280px;
+    height: 180px;
+  }
+
+  .news-grid, .impact-grid, .stories-grid, .research-grid,
+  .milestones-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .card-section {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .App-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .App-header .logo-section,
+  .App-header .wallet-section,
+  .App-header .main-nav {
+    width: 100%;
+    text-align: center; /* Center align for mobile */
+  }
+
+  .App-header .main-nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .App-header .main-nav a {
+    font-size: 1em;
+    padding: 8px 0;
+  }
+
+  .App-header .logo-section h1 {
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .wallet-section button {
+    width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .card-section {
+    padding: 25px;
+  }
+
+  .hero-section {
+    padding: 50px 20px;
+  }
+
+  .hero-section h2 {
+    font-size: 2.2em;
+  }
+
+  .hero-section p {
+    font-size: 1em;
+  }
+
+  .about-section .image-gallery img {
+    width: 100%;
+    height: auto;
+  }
+
+  .news-grid, .impact-grid, .stories-grid, .research-grid,
+  .milestones-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .milestone-card button {
+    align-self: stretch;
+  }
+
+  .connect-wallet-message {
+    padding: 30px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    padding: 10px 15px;
+  }
+
+  .App-header .logo-section h1 {
+    font-size: 1.6em;
+  }
+
+  .App-main {
+    width: 98%;
+    gap: 20px;
+  }
+
+  .card-section {
+    padding: 20px;
+  }
+
+  .hero-section h2 {
+    font-size: 1.8em;
+  }
+
+  .hero-section p {
+    font-size: 0.9em;
+  }
+
+  .input-group input,
+  .input-group select,
+  .wallet-section button,
+  .milestone-card button {
+    font-size: 0.85em;
+    padding: 10px;
+  }
+
+  .news-item p, .impact-item p, .story-item p, .research-item p,
+  .milestone-card p,
+  .event-item p {
+    font-size: 0.85em;
+  }
+
+  .event-item {
+    padding: 10px;
+  }
+}
+
+/* About Green Hydrogen Section */
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.about-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.energy-sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.energy-source-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #d4edda;
+}
+
+.energy-source-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.energy-source-card h3 {
+  color: #286638;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.energy-image-container {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.energy-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 3px solid #c8e6c9;
+}
+
+.energy-description {
+  color: #2c3e50;
+  line-height: 1.6;
+  text-align: justify;
+  font-size: 0.95rem;
+}
+
+/* Enhanced Impact Section */
+.impact-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.impact-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, #d4edda, #c8e6c9);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #a8e6cf;
+  transition: transform 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+}
+
+.stat-item h3 {
+  color: #286638;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.stat-item p {
+  color: #2c3e50;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.india-potential {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #d4edda;
+}
+
+.india-potential h3 {
+  color: #286638;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.potential-map-container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.potential-map {
+  width: 100%;
+  max-width: 600px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #c8e6c9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.potential-description {
+  text-align: justify;
+}
+
+.potential-description p {
+  color: #2c3e50;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.impact-item {
+  background: linear-gradient(135deg, #e8f5e8, #d4edda);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #c8e6c9;
+  transition: transform 0.3s ease;
+}
+
+.impact-item:hover {
+  transform: translateY(-3px);
+}
+
+.impact-item h3 {
+  color: #286638;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.impact-item p {
+  color: #2c3e50;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Responsive Design for New Components */
+@media (max-width: 768px) {
+  .energy-sources-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .energy-source-card {
+    padding: 1rem;
+  }
+  
+  .energy-image {
+    height: 180px;
+  }
+  
+  .impact-stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .india-potential {
+    padding: 1.5rem;
+  }
+  
+  .potential-map {
+    height: 250px;
+  }
+  
+  .impact-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .energy-source-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .energy-description {
+    font-size: 0.9rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .india-potential h3 {
+    font-size: 1.2rem;
+  }
+  
+  .potential-description p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Database Integration Styles */
+
+/* User Profile Database */
+.user-profile-db {
+  background: linear-gradient(135deg, #e8f5e8, #d4edda);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border: 2px solid #c8e6c9;
+}
+
+.user-profile-db h4 {
+  color: #286638;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.user-profile-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #d4edda;
+}
+
+.role-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.role-badge.owner {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ffcdd2;
+}
+
+.role-badge.producer {
+  background: #fff3e0;
+  color: #ef6c00;
+  border: 1px solid #ffe0b2;
+}
+
+.role-badge.oracle {
+  background: #f3e5f5;
+  color: #7b1fa2;
+  border: 1px solid #e1bee7;
+}
+
+.role-badge.auditor {
+  background: #e3f2fd;
+  color: #1976d2;
+  border: 1px solid #bbdefb;
+}
+
+.role-badge.government {
+  background: #e8f5e8;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+/* Database Status */
+.db-status {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 2px solid #dee2e6;
+  text-align: center;
+}
+
+.db-status h4 {
+  color: #495057;
+  margin-bottom: 0.8rem;
+}
+
+.db-status .loading {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.db-status .error {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.db-status .success {
+  color: #28a745;
+  font-weight: bold;
+}
+
+/* Enhanced Milestones */
+.milestones-section {
+  margin-bottom: 2rem;
+}
+
+.milestones-section h3 {
+  color: #286638;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #d4edda;
+}
+
+.milestone-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.milestone-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.milestone-card.blockchain {
+  border-color: #2ecc71;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+}
+
+.milestone-card.database {
+  border-color: #9b59b6;
+  background: linear-gradient(135deg, #f8f5ff, #f0ebff);
+}
+
+.milestone-card h4 {
+  color: #286638;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.milestone-card p {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.status-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-badge.completed {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.status-badge.pending {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.disburse-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.disburse-btn:hover:not(:disabled) {
+  background: #218838;
+}
+
+.disburse-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+/* Enhanced Event Log */
+.events-section {
+  margin-bottom: 2rem;
+}
+
+.events-section h3 {
+  color: #286638;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #d4edda;
+}
+
+.event-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.event-item.blockchain {
+  border-color: #2ecc71;
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+}
+
+.event-item.database {
+  border-color: #9b59b6;
+  background: linear-gradient(135deg, #f8f5ff, #f0ebff);
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.event-type-badge {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #6c5ce7;
+  color: white;
+}
+
+.event-type-badge.OracleAddressUpdated {
+  background: #00b894;
+}
+
+.event-type-badge.MilestoneProgressUpdated {
+  background: #fdcb6e;
+  color: #2d3436;
+}
+
+.event-type-badge.SubsidyDisbursed {
+  background: #e17055;
+}
+
+.event-timestamp {
+  color: #636e72;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.event-details p {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.event-data {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border: 1px solid #dee2e6;
+  overflow-x: auto;
+}
+
+.event-data pre {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #495057;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Responsive Design for Database Components */
+@media (max-width: 768px) {
+  .user-profile-card {
+    padding: 0.8rem;
+  }
+  
+  .milestone-card {
+    padding: 1rem;
+  }
+  
+  .event-item {
+    padding: 1rem;
+  }
+  
+  .event-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .event-type-badge {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .role-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .status-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .event-type-badge {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+/* Contract Not Deployed Message */
+.contract-not-deployed {
+  background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+  border: 2px solid #fdcb6e;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.contract-not-deployed h3 {
+  color: #856404;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.contract-not-deployed p {
+  color: #856404;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.contract-not-deployed ol {
+  text-align: left;
+  max-width: 500px;
+  margin: 1rem auto;
+  color: #856404;
+}
+
+.contract-not-deployed li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.contract-not-deployed code {
+  background: #f8f9fa;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  color: #e83e8c;
+  font-weight: bold;
+}
+
+/* Database Projects Section */
+.database-projects {
+  margin-top: 2rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid #d4edda;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e8f5e8;
+}
+
+.project-header h3 {
+  color: #286638;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.project-status {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.project-status.planning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.project-status.active {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.project-status.completed {
+  background: #cce5ff;
+  color: #004085;
+  border: 1px solid #b3d7ff;
+}
+
+.project-status.cancelled {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.project-description {
+  color: #2c3e50;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.project-details {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.project-details p {
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.project-details p:last-child {
+  margin-bottom: 0;
+}
+
+.project-milestones {
+  margin-bottom: 1.5rem;
+}
+
+.project-milestones h4 {
+  color: #286638;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.milestone-item {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.milestone-item:last-child {
+  margin-bottom: 0;
+}
+
+.milestone-item p {
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.milestone-item p:last-child {
+  margin-bottom: 0;
+}
+
+.milestone-status {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.milestone-status.completed {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.milestone-status.pending {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.project-attachments {
+  border-top: 2px solid #e8f5e8;
+  padding-top: 1rem;
+}
+
+.project-attachments h4 {
+  color: #286638;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.attachment-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #e9ecef;
+}
+
+.attachment-item:last-child {
+  margin-bottom: 0;
+}
+
+.attachment-item span:first-child {
+  color: #495057;
+  font-weight: 500;
+}
+
+.attachment-date {
+  color: #6c757d;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+
+/* Responsive Design for Projects */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .project-card {
+    padding: 1.5rem;
+  }
+  
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .project-header h3 {
+    font-size: 1.2rem;
+  }
+  
+  .attachment-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card {
+    padding: 1rem;
+  }
+  
+  .project-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .project-description {
+    font-size: 0.9rem;
+  }
+  
+  .project-details p {
+    font-size: 0.8rem;
+  }
+}
+
+/* Enhanced User Profile Styling */
+.user-profile-db {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  border: 2px solid #d4edda;
+}
+
+.user-profile-db h4 {
+  color: #286638;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.user-profile-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e8f5e8;
+}
+
+.profile-header h5 {
+  color: #286638;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.profile-details {
+  color: #2c3e50;
+}
+
+.profile-details p {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.profile-avatar {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.profile-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #d4edda;
+  object-fit: cover;
+}
+
+/* User Projects Section */
+.user-projects-db {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  border: 2px solid #d4edda;
+}
+
+.user-projects-db h4 {
+  color: #286638;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.user-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.user-project-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.user-project-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #e8f5e8;
+}
+
+.project-title h5 {
+  color: #286638;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.project-desc {
+  color: #2c3e50;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.project-stats {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #e9ecef;
+}
+
+.project-stats p {
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.85rem;
+}
+
+.project-stats p:last-child {
+  margin-bottom: 0;
+}
+
+/* Database Status Styling */
+.db-status {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.db-status h4 {
+  color: #286638;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.db-status p {
+  margin: 0.5rem 0;
+  font-weight: 500;
+}
+
+/* Responsive Design for User Projects */
+@media (max-width: 768px) {
+  .user-projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .user-project-card {
+    padding: 1rem;
+  }
+  
+  .project-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
